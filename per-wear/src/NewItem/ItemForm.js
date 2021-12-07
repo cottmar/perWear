@@ -2,50 +2,45 @@ import React, { useState } from 'react';
 
 const ItemForm = (props) => {
 
-    const [enteredItem, setEnteredItem] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
+    const [ itemEntered, setItemEntered ] = useState('');
+    const [ amountEntered, setAmountEntered ] = useState('');
 
-    const itemHandler = (event) => {
-        setEnteredItem(event.target.value);
+    const addItemHandler = (event) => {
+        setItemEntered(event.target.value);
     }
 
-    const costHandler = (event) => {
-        setEnteredAmount(event.target.value);
+    const addAmountHandler = (event) => {
+        setAmountEntered(event.target.value);
     }
 
-    const submitHandler = (event) => {
+    const onSubmit = (event) => {
         event.preventDefault();
 
         const itemData = {
-            item: enteredItem,
-            amount: enteredAmount
+            item: itemEntered,
+            amount: amountEntered
         }
+        
+        console.log(itemData, 'this is the item data')
 
-        console.log('item data', itemData)
-
-        setEnteredItem('');
-        setEnteredAmount('');
     }
 
     return (
-        <form onSubmit={submitHandler}>
-            <div>
+            <form onSubmit={onSubmit}>
                 <label>Item: </label>
                 <input 
-                    type='text' 
-                    onChange={itemHandler} 
-                    value={enteredItem}/>
-            </div>
-            <div>
-                <label>Original Cost: </label>
+                    type='text'
+                    onChange={addItemHandler}
+                    value={itemEntered}
+                />
+                <label>Amount: </label>
                 <input 
-                    type='number' 
-                    onChange={costHandler}
-                    min="0.01"
-                    value={enteredAmount}/>
-            </div>
-            <button type='submit'>Add</button>
-        </form>
+                    type='number'
+                    onChange={addAmountHandler}
+                    value={amountEntered}
+                />
+                <button type='submit'>Add New Item</button>
+            </form>
     )
 }
 
