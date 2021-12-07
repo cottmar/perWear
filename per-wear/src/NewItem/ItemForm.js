@@ -2,42 +2,43 @@ import React, { useState } from 'react';
 
 const ItemForm = (props) => {
 
-    const [ itemEntered, setItemEntered ] = useState('');
-    const [ amountEntered, setAmountEntered ] = useState('');
+    const [ enteredItem, setEnteredItem ] = useState('');
+    const [ enteredAmount, setEnteredAmount ] = useState('');
 
-    const itemAddHandler = (event) => {
-        setItemEntered(event.target.value);
+    const enteredItemHandler = (event) => {
+        setEnteredItem(event.target.value);
     }
 
-    const amountAddHandler = (event) => {
-        setAmountEntered(event.target.handler)
+    const enteredAmountHandler = (event) => {
+        setEnteredAmount(event.target.value);
     }
 
-    const onSubmitHandler = (event) => {
+    const submitHandler = (event) => {
         event.preventDefault();
 
-        const itemData = {
-            item: itemEntered,
-            amount: amountEntered
+        const itemData= {
+            item: enteredItem,
+            amount: enteredAmount
         }
-        console.log(itemData, 'This is the item data')
+
+        console.log(itemData, "the item data")
     }
 
     return (
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={submitHandler}>
             <label>Item: </label>
             <input 
                 type='text'
-                value={itemEntered}
-                onChange={itemAddHandler}
+                value={enteredItem}
+                onChange={enteredItemHandler}
             />
             <label>Amount: </label>
             <input 
                 type='number'
-                value={amountEntered}
-                onChange={amountAddHandler}
+                value={enteredAmount}
+                onChange={enteredAmountHandler}
             />
-            <button type='submit'>Add New Item and Value</button>
+            <button type='submit'>Add New Item</button>
         </form>
     )
 }
