@@ -2,49 +2,43 @@ import React, { useState } from 'react';
 
 const ItemForm = (props) => {
 
-    const [enteredItem, setEnteredItem] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
+    const [ enteredItem, setEnteredItem ] = useState('');
+    const [ enteredAmount, setEnteredAmount ] = useState('');
 
-    const itemHandler = (event) => {
+    const enteredItemHandler = (event) => {
         setEnteredItem(event.target.value);
     }
 
-    const costHandler = (event) => {
+    const enteredAmountHandler = (event) => {
         setEnteredAmount(event.target.value);
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
 
-        const itemData = {
+        const itemData= {
             item: enteredItem,
             amount: enteredAmount
         }
 
-        console.log('item data', itemData)
-
-        setEnteredItem('');
-        setEnteredAmount('');
+        console.log(itemData, "the item data")
     }
 
     return (
         <form onSubmit={submitHandler}>
-            <div>
-                <label>Item: </label>
-                <input 
-                    type='text' 
-                    onChange={itemHandler} 
-                    value={enteredItem}/>
-            </div>
-            <div>
-                <label>Original Cost: </label>
-                <input 
-                    type='number' 
-                    onChange={costHandler}
-                    min="0.01"
-                    value={enteredAmount}/>
-            </div>
-            <button type='submit'>Add</button>
+            <label>Item: </label>
+            <input 
+                type='text'
+                value={enteredItem}
+                onChange={enteredItemHandler}
+            />
+            <label>Amount: </label>
+            <input 
+                type='number'
+                value={enteredAmount}
+                onChange={enteredAmountHandler}
+            />
+            <button type='submit'>Add New Item</button>
         </form>
     )
 }
