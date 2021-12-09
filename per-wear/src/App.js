@@ -1,10 +1,17 @@
 import './App.css';
-import ItemForm from './NewItem/ItemForm';
+import NewItem from './NewItem/NewItem';
 
 function App() {
+
+  const addItemHandler = (item) => {
+    console.log(item, 'THE ITEM')
+  }
+
   return (
     <div className="App">
-      <ItemForm />
+      <NewItem 
+        onAddItem={addItemHandler}
+      />
     </div>
   );
 }
