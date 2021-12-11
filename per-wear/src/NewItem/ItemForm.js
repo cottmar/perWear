@@ -20,6 +20,8 @@ const ItemForm = (props) => {
             item: enteredItem,
             amount: enteredAmount
         }
+        
+        props.onSaveItemData(itemData);
 
         console.log(itemData, "the item data")
     }
