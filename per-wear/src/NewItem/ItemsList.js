@@ -1,14 +1,22 @@
 import React from 'react';
+import Item from './Item';
 
 const ItemsList = (props) => {
 
-    console.log(props, 'what are the props')
     if (props.item.length === 0) {
         return <h2>Found no expenses.</h2>
     }
 
     return (
-        <p>CARAAAAA</p>
+        <ul>
+            {props.item.map((item) => (
+                <Item 
+                    key={item.id}
+                    item={item.item}
+                    amount={item.amount}
+                />
+            ))}
+        </ul>
     )
 }
 
