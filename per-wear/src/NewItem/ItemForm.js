@@ -20,8 +20,10 @@ const ItemForm = (props) => {
             item: enteredItem,
             amount: enteredAmount
         }
-        
+        // this is coming from NewItem.js -- form and itemData are being passed down 
         props.onSaveItemData(itemData);
+        setEnteredAmount('');
+        setEnteredItem('');
 
         console.log(itemData, "the item data")
     }
