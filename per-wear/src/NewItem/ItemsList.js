@@ -8,15 +8,17 @@ const ItemsList = (props) => {
     }
 
     return (
-        <ul>
-            {props.item.map((item) => (
-                <Item 
-                    key={item.id}
-                    item={item.item}
-                    amount={item.amount}
-                />
-            ))}
-        </ul>
+        <div>
+            <ul>
+                {props.item.map((item) => (
+                    <Item 
+                        key={item.id}
+                        item={item.item}
+                        amount={item.amount}
+                   />
+                ))}
+            </ul>
+        </div>
     )
 }
 
