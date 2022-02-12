@@ -10,6 +10,10 @@ class AddUseButton extends React.Component {
         amount: 0
     }
 
+    // get number of clicks counted
+    // access the original amount
+    // skip the click / 0 and click /1
+
     updateAmountUsedHandler = () => {
         this.setState(prev => ({ counter: prev.counter + 1}))        
 
@@ -17,7 +21,10 @@ class AddUseButton extends React.Component {
         //     counter: this.state.counter,
         //     amount: this.props.amount, 
         // }
-        if (Math.abs(this.state.counter) !== 0) {
+        // const amountToDivide = this.props.amount
+
+// this.props.amount !== amountToDivide is not working
+        if (Math.abs(this.state.counter) !== 0 && Math.abs(this.state.counter) !== 1 ) {
             const dividedAmount = this.props.amount / this.state.counter
                     console.log(dividedAmount)
         }
