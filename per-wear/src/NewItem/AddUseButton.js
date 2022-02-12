@@ -1,19 +1,50 @@
 import React, { useState } from 'react';
 
-const AddUseButton = (props) => {
+class AddUseButton extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    
+    state = {
+        counter: 0,
+        amount: 0
+    }
 
-    // const [ itemsToUse, setItemsToUse ] = useState(false);
+    updateAmountUsedHandler = () => {
+        this.setState(prev => ({ counter: prev.counter + 1}))        
 
-    // const ifItemsListed = (props) => {
-    //     console.log(props, 'ADD USE BUTTON')
-    // }
+        // const updatedItemAmount = {
+        //     counter: this.state.counter,
+        //     amount: this.props.amount, 
+        // }
+        if (Math.abs(this.state.counter) !== 0) {
+            const dividedAmount = this.props.amount / this.state.counter
+                    console.log(dividedAmount)
+        }
 
-    return (
-        <div>
-            {/* {ifItemsListed === true ? <button>Add Use</button> : <p>Nothing</p>} */}
-            <button>Add Use</button>
-        </div>
-    )
+
+    }
+
+  
+
+    render() {
+        return (
+            <div>
+                <button min='1' onClick={this.updateAmountUsedHandler}>Add Use</button>
+            </div>
+        )
+    }
+
+    
+
 }
+
+    // need to add state for the item amount 
+    // need to add state for the amount of times used (counter)
+ 
+    // each time the button is clicked, add to counter
+    // each time the counter is increased, divide amount by 2.
+
+    
 
 export default AddUseButton;

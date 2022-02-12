@@ -17,8 +17,13 @@ const ItemForm = (props) => {
         event.preventDefault();
 
         const itemData= {
+            id: 1 + Math.random(),
             item: enteredItem,
             amount: enteredAmount
+        }
+
+        if (!enteredItem && !enteredAmount) {
+            return alert('Please add the item and original amount paid')
         }
         // this is coming from NewItem.js -- form and itemData are being passed down 
         props.onSaveItemData(itemData);
