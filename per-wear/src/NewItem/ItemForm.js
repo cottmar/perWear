@@ -4,6 +4,7 @@ const ItemForm = (props) => {
 
     const [ enteredItem, setEnteredItem ] = useState('');
     const [ enteredAmount, setEnteredAmount ] = useState('');
+    const [ useCount, setUseCount] = useState(0);
 
     const enteredItemHandler = (event) => {
         setEnteredItem(event.target.value);
@@ -17,11 +18,19 @@ const ItemForm = (props) => {
         event.preventDefault();
 
         const itemData= {
+            id: 1 + Math.random(),
             item: enteredItem,
-            amount: enteredAmount
+            amount: enteredAmount,
+            useCount: useCount
         }
-        
+
+        if (!enteredItem && !enteredAmount) {
+            return alert('Please add the item and original amount paid')
+        }
+        // this is coming from NewItem.js -- form and itemData are being passed down 
         props.onSaveItemData(itemData);
+        setEnteredAmount('');
+        setEnteredItem('');
 
         console.log(itemData, "the item data")
     }
