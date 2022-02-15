@@ -7,16 +7,21 @@ const DUMMY_EXPENSES = [
   {
     id: 'i1',
     item: 'Peloton',
-    amount: 1400
+    amount: 1400,
+    useCount: 0
   },
   {
     id: 'i2',
     item: 'Clutch',
-    amount: 247
+    amount: 247, 
+    useCount: 2
   }
 ]
 
 const App = () => {
+
+  // my state is: 1. item, 2. amount and 3. useCount
+
   const [ items, setItems ] = useState(DUMMY_EXPENSES);
 
   const addItemHandler = (item) => {

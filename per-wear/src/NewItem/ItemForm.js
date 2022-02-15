@@ -4,6 +4,7 @@ const ItemForm = (props) => {
 
     const [ enteredItem, setEnteredItem ] = useState('');
     const [ enteredAmount, setEnteredAmount ] = useState('');
+    const [ useCount, setUseCount] = useState(0);
 
     const enteredItemHandler = (event) => {
         setEnteredItem(event.target.value);
@@ -19,7 +20,8 @@ const ItemForm = (props) => {
         const itemData= {
             id: 1 + Math.random(),
             item: enteredItem,
-            amount: enteredAmount
+            amount: enteredAmount,
+            useCount: useCount
         }
 
         if (!enteredItem && !enteredAmount) {
