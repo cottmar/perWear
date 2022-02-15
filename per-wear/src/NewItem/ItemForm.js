@@ -21,7 +21,9 @@ const ItemForm = (props) => {
             id: 1 + Math.random(),
             item: enteredItem,
             amount: enteredAmount,
-            useCount: useCount
+            newAmount: null,
+            useCount: useCount,
+            newUseCount: null
         }
 
         if (!enteredItem && !enteredAmount) {

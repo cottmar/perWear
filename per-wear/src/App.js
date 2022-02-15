@@ -20,16 +20,12 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
 
-  // my state is: 1. item, 2. amount and 3. useCount
-
   const [ items, setItems ] = useState(DUMMY_EXPENSES);
 
   const addItemHandler = (item) => {
     setItems(prevItems => {
-      console.log('APP ITEM AND PREV ITEMS', item, prevItems)
       return [item, ...prevItems]
     })
-    console.log(item, 'IN APP.JS - THE ITEM')
   }
 
   return (
