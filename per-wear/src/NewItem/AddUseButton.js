@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 
-const AddUseButton = ({ item, ogAmount, useCount}) => {
-    console.log(item, ogAmount, useCount, 'WHEN ADD USE BUTTON IS CLICKED')
+const AddUseButton = (props) => {
+    console.log(props, 'props in add use button')
     const [ count, setCount ] = useState(0);
     console.log(count, setCount, 'COUNTING?')
+
+    const buttonClickedCounter = () => {
+        setCount(count + 1)
+        props.useCount(setCount)
+    }
 
 
     return (
             <div>
                 {/* <button min='1' onClick={updateAmountUsedHandler}>Add Use</button> */}
-                <button onClick={() => setCount(count + 1)}>Add Use</button>
+                <button onClick={buttonClickedCounter}>Add Use</button>
             </div>
         )
 }

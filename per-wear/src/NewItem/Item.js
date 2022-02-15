@@ -12,7 +12,7 @@ const Item = ({item, ogAmount, useCount}) => {
                     <h3>{ogAmount}</h3>
                     <h2>{useCount}</h2>
             </ul>
-            <AddUseButton item={item} ogAmount={ogAmount} useCount={useCount}/>
+            {/* <AddUseButton item={item} ogAmount={ogAmount} useCount={useCount}/> */}
         </div>
     )
 }
